@@ -53,6 +53,7 @@ const useGetPackagesVersions = async () => {
   }
 }
 
+ useGetPackagesVersions();
 
 ```
 
