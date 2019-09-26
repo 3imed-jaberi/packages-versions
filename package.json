@@ -4,7 +4,9 @@
   "description": " A collection of npm packages utils 🗃 .. ",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha --reporter spec",
+    "dev:test": "mocha --watch"
   },
   "repository": {
     "type": "git",
@@ -25,5 +27,8 @@
   "homepage": "https://github.com/3imed-jaberi/packages-versions#readme",
   "dependencies": {
     "semver": "^6.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
   }
 }
