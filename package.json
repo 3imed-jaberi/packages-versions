@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "mocha --reporter spec",
-    "dev:test": "mocha --watch"
+    "dev:test": "mocha --watch",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec",
+    "ci": "npm run cover"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,8 @@
     "semver": "^6.3.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.6",
+    "istanbul": "^0.4.5",
     "mocha": "^6.2.0"
   }
 }
