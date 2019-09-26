@@ -4,3 +4,16 @@
 node_modules
 package-lock.json
 yarn.lock
+
+
+#       OS        #
+###################
+.idea
+.DS_Store
+Thumbs.db
+
+
+#    Coverage     #
+###################
+coverage
+
