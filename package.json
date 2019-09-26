@@ -1,0 +1,26 @@
+{
+  "name": "packages-versions",
+  "version": "1.0.0",
+  "description": " A collection of npm packages utils 🗃 .. ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3imed-jaberi/packages-versions.git"
+  },
+  "keywords": [
+    "npm",
+    "yarn",
+    "npm-tools",
+    "yarn-tools",
+    "semantic-versioning"
+  ],
+  "author": "imed jaberi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3imed-jaberi/packages-versions/issues"
+  },
+  "homepage": "https://github.com/3imed-jaberi/packages-versions#readme"
+}
