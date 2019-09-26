@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/3imed-jaberi/packages-versions/issues"
   },
-  "homepage": "https://github.com/3imed-jaberi/packages-versions#readme"
+  "homepage": "https://github.com/3imed-jaberi/packages-versions#readme",
+  "dependencies": {
+    "semver": "^6.3.0"
+  }
 }
