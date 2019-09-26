@@ -4,11 +4,15 @@
   "description": " A collection of npm packages utils 🗃 .. ",
   "main": "index.js",
   "scripts": {
+    "init": "npm i",
     "start": "node index.js",
     "test": "mocha --reporter spec",
     "dev:test": "mocha --watch",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec",
-    "ci": "npm run cover"
+    "ci": "npm run cover",
+    "postversion": "git push && git push --tags",
+    "prepublishOnly": "npm run ci",
+    "preversion": "npm run ci"
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,19 @@
     "yarn",
     "npm-tools",
     "yarn-tools",
-    "semantic-versioning"
+    "semantic-versioning",
+    "versions",
+    "releases",
+    "tags",
+    "alpha",
+    "beta",
+    "release candidate",
+    "packages-versions",
+    "packages-releases",
+    "oss",
+    "open-source",
+    "get-packages-versions",
+    "get-packages-releases"
   ],
   "author": "imed jaberi",
   "license": "MIT",
