@@ -1,12 +1,12 @@
 {
   "name": "packages-versions",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": " A collection of npm packages utils 🗃 .. ",
   "main": "index.js",
   "scripts": {
     "init": "npm i",
     "start": "node index.js",
-    "test": "mocha --reporter spec",
+    "test": "mocha",
     "dev:test": "mocha --watch",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec",
     "ci": "npm run cover",
