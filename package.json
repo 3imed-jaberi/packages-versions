@@ -1,6 +1,6 @@
 {
   "name": "packages-versions",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": " A collection of npm packages utils 🗃 .. ",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,10 @@
     "get-packages-versions",
     "get-packages-releases"
   ],
-  "author": "imed jaberi",
+  "author": {
+    "name": "imed jaberi",
+    "email": "3imed.jaberi@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/3imed-jaberi/packages-versions/issues"
