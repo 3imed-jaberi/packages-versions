@@ -40,7 +40,7 @@ const getPackagesVersions = require ('packages-versions');
                     .catch(err => console.log(err));
 
 
-// Async/Await way : 
+// Async/Await way || you can use IIFE < (func)() > : 
 const useGetPackagesVersions = async () => {
 
   try {
@@ -53,7 +53,8 @@ const useGetPackagesVersions = async () => {
   }
 }
 
- useGetPackagesVersions();
+  useGetPackagesVersions();
+
 
 ```
 
