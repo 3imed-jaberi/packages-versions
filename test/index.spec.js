@@ -1,17 +1,27 @@
-
 const assert = require('assert');
 const getPackagesVersions = require('..');
 
 
-it('should get the versions of `short-objectid` ..', async () => {
+
+it('get the success response < versions of `short-objectid` > ..', async () => {
+
+  // remove the try-catch ..
+  let VersionsList = await getPackagesVersions('short-objectid');
+  assert.notEqual(VersionsList.indexOf('1.0.0'), -1);
+  
+}); 
+
+
+it('get the failed response < error msg > ..', async () => {
 
   try {
-    
-    let VersionsList = await getPackagesVersions('short-objectid');
-    assert.notEqual(VersionsList.indexOf('1.0.0'),-1);
-  
+
+    await getPackagesVersions('short-objectid+2');
+
   }catch(err){
-    // console.log(err) 
+
+    assert.ok(true);
+    
   }
 
 }); 
