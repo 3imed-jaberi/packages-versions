@@ -31,10 +31,11 @@ $ yarn add packages-versions
 
 
 // you can use any name for this function .. 
+// The array of versions will be sorted in descending order
 const getPackagesVersions = require ('packages-versions');
 
 
-// Pormise way : 
+// Promise way : 
           getPackagesVersions('any-to-any')
                     .then(data => console.log(`Versions List Using Promise : \n`,data))
                     .catch(err => console.log(err));
