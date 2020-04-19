@@ -1,14 +1,13 @@
 {
   "name": "packages-versions",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": " A collection of npm packages utils 🗃 .. ",
   "main": "index.js",
   "scripts": {
-    "init": "npm i",
     "start": "node index.js",
     "test": "mocha",
-    "dev:test": "mocha --watch",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec",
+    "tes:dev": "mocha --watch",
+    "cover": "nyc npm run test",
     "ci": "npm run cover",
     "postversion": "git push && git push --tags",
     "prepublishOnly": "npm run ci",
@@ -29,7 +28,7 @@
     "tags",
     "alpha",
     "beta",
-    "release candidate",
+    "rc",
     "packages-versions",
     "packages-releases",
     "oss",
@@ -39,19 +38,23 @@
   ],
   "author": {
     "name": "imed jaberi",
-    "email": "3imed.jaberi@gmail.com"
+    "email": "3imed.jaberi@gmail.com",
+    "url": "https://www.3imed-jaberi.com"
   },
   "license": "MIT",
+  "dependencies": {
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
   "bugs": {
     "url": "https://github.com/3imed-jaberi/packages-versions/issues"
   },
-  "homepage": "https://github.com/3imed-jaberi/packages-versions#readme",
-  "dependencies": {
-    "semver": "^6.3.0"
-  },
-  "devDependencies": {
-    "coveralls": "^3.0.6",
-    "istanbul": "^0.4.5",
-    "mocha": "^6.2.0"
-  }
+  "homepage": "https://github.com/3imed-jaberi/packages-versions#readme"
 }
