@@ -25,7 +25,11 @@
 [pr-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
 [pr-url]: https://github.com/3imed-jaberi/packages-versions/blob/master/CONTRIBUTING.md
 
-#### GET ALL VERSIONS OF ANY PACKAGES 🗃 .. 
+GET ALL VERSIONS OF ANY PACKAGES 🗃 .. 
+
+> I don't intend to make breaking changes to this package 🙌🏻. So, don't be afraid to upgrade ✨. <br/> I added Opts argument to the function for give you more control 🎮. 
+
+**Note:** v2.1.0 ~ currently 1 option it's available ` ({ reverse: true})`.
 
 ## `Installation`
 
@@ -40,33 +44,39 @@ $ yarn add packages-versions
 
 This is a practical example of how to use.
 
+### Example:
 
 ```javascript
-
 // you can use any name for this function .. 
 // The array of versions will be sorted in descending order
 const getPackagesVersions = require ('packages-versions');
-
 // Promise way : 
           getPackagesVersions('any-to-any')
-                    .then(data => console.log(`Versions List Using Promise : \n`,data))
+                    .then(data => console.log(`Versions List Using Promise: \n`, data))
                     .catch(err => console.log(err));
-
 // Async/Await way || you can use IIFE < (func)() > : 
 const useGetPackagesVersions = async () => {
   try {
     let list = await getPackagesVersions('any-to-any');
-    console.log('Versions List Using Async/Await : \n',list);
+    console.log('Versions List Using Async/Await: \n', list);
   }catch(err){
      console.log(err) 
   }
 }
-
 useGetPackagesVersions();
 
+// NEW UPDATE ^^ 🥳 ..  
+const packagesVersionsWithOpts = async () => {
+  try {
+    let list = await getPackagesVersions('any-to-any', { reverse: true });
+    console.log('Versions List Using Async/Await with Opts: \n', list);
+  }catch(err){
+     console.log(err) 
+  }
+}
 ```
 
-Result: 
+### Result: 
 
 ```bash
 $your_pc_name_with_your_directory
@@ -78,6 +88,11 @@ Versions List Using Promise:
 # Async/Await result :
 Versions List Using Async/Await:
 [ '1.5.1', '1.5.0', '1.4.0', '1.3.1', '1.3.0', '1.2.0', '1.1.2', '1.1.1', '1.1.0', '1.0.0' ]
+
+# NEW UPDATE ^^ 🥳 .. 
+# packagesVersionsWithOpts result: 
+Versions List Using Async/Await with Opts:
+[ '1.0.0', '1.1.0', '1.1.1', '1.1.2', '1.2.0', '1.3.0', '1.3.1', '1.4.0', '1.5.0', '1.5.1' ]
 
 ```
 
