@@ -1,6 +1,6 @@
 # PACKAGES VERSIONS 🪁
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status][travis-badge]][travis-url] &nbsp;&nbsp;
@@ -113,6 +113,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://twitter.com/joelbdenning"><img src="https://avatars1.githubusercontent.com/u/5524384?v=4" width="100px;" alt=""/><br /><sub><b>Joel Denning</b></sub></a><br /><a href="https://github.com/3imed-jaberi/packages-versions/commits?author=joeldenning" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://3imed-jaberi.com"><img src="https://avatars2.githubusercontent.com/u/43971542?v=4" width="100px;" alt=""/><br /><sub><b>imed jaberi</b></sub></a><br /><a href="https://github.com/3imed-jaberi/packages-versions/commits?author=3imed-jaberi" title="Documentation">📖</a> <a href="#infra-3imed-jaberi" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-3imed-jaberi" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
