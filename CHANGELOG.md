@@ -1,7 +1,12 @@
 ## CHANGE LOG
 
+### v2.2.0 (27 Avr 2020)
+  - add Opts `{ extract: { pure: true, beta: true } } ` feature for control the <br/> return result (extract versions with type).
+  - add test for this feature.
+  - update README.md.
+
 ### v2.1.0 (19 Avr 2020)
-  - add Opts `{ reverse: true } ` feature for control the return result.
+  - add Opts `{ reverse: true } ` feature for control the return result (sort).
   - add test for this feature.
   - update README.md.
   - test coverage: replace istanbul with nyc.
