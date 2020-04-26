@@ -13,6 +13,17 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "3imed-jaberi",
+      "name": "imed jaberi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/43971542?v=4",
+      "profile": "https://3imed-jaberi.com",
+      "contributions": [
+        "doc",
+        "infra",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
