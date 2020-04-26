@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "joeldenning",
+      "name": "Joel Denning",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5524384?v=4",
+      "profile": "http://twitter.com/joelbdenning",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "packages-versions",
+  "projectOwner": "3imed-jaberi",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
