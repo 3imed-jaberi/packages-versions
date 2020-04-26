@@ -3,13 +3,14 @@ const semver = require('semver');
 
 /**
  * Through this function you get a list of your package input name..
- * @param {String} PackageName: name of the npm package .. 
- * @param {Object} Opts: options for foramt result ..
+ * 
+ * @param {String} PackageName: name of the npm package ..
+ * @param {Object} Opts: options for foramt result (more control) .. you can pass `reverse` as boolean or `extract` as object with boolean props like this { pure: true, rc: true, beta: true, alpha:true } or both..
  */
 module.exports = function (PackageName, Opts) {
-  // TODO: add more options like filter/extract ..
   Opts = Opts || {};
   const reverse = Opts.reverse || false;
+  const extract = Opts.extract || null;
 
   return new Promise((resolve, reject) => {
     https.request({
@@ -25,25 +26,50 @@ module.exports = function (PackageName, Opts) {
           return reject(new Error(`Failed to get npmjs.org/${PackageName} version(s).`).message);
         }     
 
-     
         let data = '';
         response.setEncoding('utf8');
         response.on('data', (letter) => { data += letter });
         response.once(
           'end', 
           () => {
-            // TODO: make this part more better for put more opts.
-            const ResponseData = Object
-                            .keys(JSON.parse(data).versions)
-                            .filter(version => semver.valid(version))
-                            .sort(semver.rcompare);
-            const result = reverse ? ResponseData.reverse() : ResponseData;
-            
-            resolve(result);
+            let versionsResult;
+            const versionsResponse = Object
+                .keys(JSON.parse(data).versions)
+                .filter(version => semver.valid(version))
+                .sort(semver.rcompare);
+
+          // **************************** Handle Options **************************** //
+            // Handle `extract` option .. 
+            if (extract) {
+              const { pure, rc, beta, alpha } = extract;
+
+              versionsResult = (() => {
+                // when all extract fields are true, don't need to diving in loops .. 
+                if(pure && rc && beta && alpha) {
+                  return versionsResponse;
+                }
+                // simple but clean, here we forced to loops .. 
+                return versionsResponse.filter(version => {
+                  if(pure && version.length === 'X.X.X'.length) return version;
+                  if(rc && version.includes('rc')) return version;
+                  if(beta && version.includes('beta')) return version;
+                  if(alpha && version.includes('alpha')) return version;
+                  return false;
+                });
+              })();  
+            }
+
+            // Handle `reverse` option .. 
+            if(reverse) {
+              versionsResult = extract ? versionsResult.reverse() : versionsResponse.reverse();
+            }
+
+          // ************************************************************************ //
+
+            resolve(Object.keys(Opts).length !== 0 ? versionsResult : versionsResponse);
           }
         );
     })
-    // TODO: think about custom error .. 
     .on('error', error => reject(error.message))
     .end();
   });
