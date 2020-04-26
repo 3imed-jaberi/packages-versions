@@ -1,11 +1,8 @@
 # PACKAGES VERSIONS 🪁
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 [![Build Status][travis-badge]][travis-url] &nbsp;&nbsp;
 [![Coverage Status][coveralls-badge]][coveralls-url] &nbsp;&nbsp;
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 [![NPM version][npm-badge]][npm-url] &nbsp;&nbsp;
 [![License][license-badge]][license-url] &nbsp;&nbsp;
 ![Top Language][top-language-badge] &nbsp;&nbsp;
