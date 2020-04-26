@@ -1,4 +1,3 @@
-
 # PACKAGES VERSIONS 🪁
 
 [![Build Status][travis-badge]][travis-url] &nbsp;&nbsp;
@@ -27,9 +26,7 @@
 
 GET ALL VERSIONS OF ANY PACKAGES 🗃 .. 
 
-> I don't intend to make breaking changes to this package 🙌🏻. So, don't be afraid to upgrade ✨. <br/> I added Opts argument to the function for give you more control 🎮. 
-
-**Note:** v2.1.0 ~ currently 1 option it's available ` ({ reverse: true})`.
+> I don't intend to make breaking changes to this package 🙌🏻. So, don't be afraid to upgrade ✨. <br/> I added Opts argument (Optional) to the function for give you more control 🎮. 
 
 ## `Installation`
 
@@ -40,61 +37,68 @@ $ npm install packages-versions
 $ yarn add packages-versions
 ```
 
+
 ## `Usage`
 
 This is a practical example of how to use.
 
-### Example:
-
 ```javascript
-// you can use any name for this function .. 
-// The array of versions will be sorted in descending order
-const getPackagesVersions = require ('packages-versions');
-// Promise way : 
-          getPackagesVersions('any-to-any')
-                    .then(data => console.log(`Versions List Using Promise: \n`, data))
-                    .catch(err => console.log(err));
-// Async/Await way || you can use IIFE < (func)() > : 
-const useGetPackagesVersions = async () => {
-  try {
-    let list = await getPackagesVersions('any-to-any');
-    console.log('Versions List Using Async/Await: \n', list);
-  }catch(err){
-     console.log(err) 
-  }
-}
-useGetPackagesVersions();
+  // you can use any name for this function.
+  // the result is an array of versions in descending order.
+  const getPackagesVersions = require ('packages-versions');
 
-// NEW UPDATE ^^ 🥳 ..  
-const packagesVersionsWithOpts = async () => {
-  try {
-    let list = await getPackagesVersions('any-to-any', { reverse: true });
-    console.log('Versions List Using Async/Await with Opts: \n', list);
-  }catch(err){
-     console.log(err) 
-  }
-}
-```
+  // note: you can use the promise way (then/catch)
 
-### Result: 
+  (async () => {
+    try {
+      let list = await getPackagesVersions('packages-versions');
+      console.log(list);
+    }catch(err){
+      console.log(err) 
+    }
+  })();
+  // Result: 
+  // [ '2.1.0', '2.0.0', '1.1.1', '1.1.0', '1.0.1', '1.0.0' ]
 
-```bash
-$your_pc_name_with_your_directory
+  // the same example with reverse opt.
+  (async () => {
+    try {
+      let list = await getPackagesVersions('packages-versions', { reverse: true });
+      console.log(list);
+    }catch(err){
+      console.log(err) 
+    }
+  })();
+  // Result: 
+  // [ '1.0.0', '1.0.1', '1.1.0', '1.1.1', '2.0.0', '2.1.0' ]
 
-# Promise result : 
-Versions List Using Promise:
-[ '1.5.1', '1.5.0', '1.4.0', '1.3.1', '1.3.0', '1.2.0', '1.1.2', '1.1.1', '1.1.0', '1.0.0' ]
-  
-# Async/Await result :
-Versions List Using Async/Await:
-[ '1.5.1', '1.5.0', '1.4.0', '1.3.1', '1.3.0', '1.2.0', '1.1.2', '1.1.1', '1.1.0', '1.0.0' ]
-
-# NEW UPDATE ^^ 🥳 .. 
-# packagesVersionsWithOpts result: 
-Versions List Using Async/Await with Opts:
-[ '1.0.0', '1.1.0', '1.1.1', '1.1.2', '1.2.0', '1.3.0', '1.3.1', '1.4.0', '1.5.0', '1.5.1' ]
+  // the same example with extract opt.
+    try {
+      let list = await getPackagesVersions('packages-versions', { extract: { rc: true } });
+      console.log(list);
+    }catch(err){
+      console.log(err) 
+    }
+  })();
+  // Result: // we don't have any rc package.
+  // []
 
 ```
+
+### `Options Ref.` 
+
+  | Option      | Type      | Descriptio                                                      |
+  | ----------- | --------- | --------------------------------------------------------------- |
+  | `reverse`   | Boolean   | Reverse the order of the results (versions array).              |
+  | `extract`   | Object    | Extract only the type of version you want.                      |
+
+**Note:** `extract` can contain one, some or all of these values ​​in a boolean form;
+  - pure: X.X.X
+  - rc: X.X.X-rc
+  - beta: X.X.X-beta
+  - alpha: X.X.X-alpha
+
+> __You can combine `reverse` and `extract`.__
 
 
 #### License
