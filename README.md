@@ -92,11 +92,7 @@ This is a practical example of how to use.
   | `reverse`   | Boolean   | Reverse the order of the results (versions array).              |
   | `extract`   | Object    | Extract only the type of version you want.                      |
 
-**Note:** `extract` can contain one, some or all of these values ​​in a boolean form;
-  - pure: X.X.X
-  - rc: X.X.X-rc
-  - beta: X.X.X-beta
-  - alpha: X.X.X-alpha
+**Note:** `extract` can contain one, some or all of these values ​​in a boolean form (pure: X.X.X, rc: X.X.X-rc, beta: X.X.X-beta, alpha: X.X.X-alpha).
 
 > __You can combine `reverse` and `extract`.__
 
