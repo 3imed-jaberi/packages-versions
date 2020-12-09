@@ -1,10 +1,9 @@
 {
   "name": "packages-versions",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": " A collection of npm packages utils 🗃 .. ",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "mocha",
     "tes:dev": "mocha --watch",
     "cover": "nyc npm run test",
@@ -51,7 +50,7 @@
     "nyc": "^15.0.1"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">= 10"
   },
   "bugs": {
     "url": "https://github.com/3imed-jaberi/packages-versions/issues"
