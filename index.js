@@ -1,76 +1,78 @@
-const https = require('https');
-const semver = require('semver');
+const https = require('https')
+const semver = require('semver')
 
 /**
- * Through this function you get a list of your package input name..
+ * through this function you get a list of your package input name.
  * 
- * @param {String} PackageName: name of the npm package ..
- * @param {Object} Opts: options for foramt result (more control) .. you can pass `reverse` as boolean or `extract` as object with boolean props like this { pure: true, rc: true, beta: true, alpha:true } or both..
+ * @param {String} pkgName    name of the npm package.
+ * @param {Object} opts       options for foramt result (more control). 
+ *                            you can pass `reverse` as boolean or `extract` 
+ *                            as object with boolean props like this 
+ *                            { pure: true, rc: true, beta: true, alpha:true }
+ *                            or both.
  */
-module.exports = function (PackageName, Opts) {
-  Opts = Opts || {};
-  const reverse = Opts.reverse || false;
-  const extract = Opts.extract || null;
+module.exports = function (pkgName, opts) {
+  opts = opts || {}
+  const reverse = opts.reverse || false
+  const extract = opts.extract || null
 
   return new Promise((resolve, reject) => {
     https.request({
         method: 'GET',
         host: 'registry.npmjs.org',
-        path:  `/${PackageName}`,
+        path:  `/${pkgName}`,
         headers: { 'Content-Type': 'application/json' },
         agent: false,
       },
       response => {
-
         if (response.statusCode !== 200) {
-          return reject(new Error(`Failed to get npmjs.org/${PackageName} version(s).`).message);
+          return reject(new Error(`Failed to get npmjs.org/${pkgName} version(s).`))
         }     
 
-        let data = '';
-        response.setEncoding('utf8');
-        response.on('data', (letter) => { data += letter });
+        let data = ''
+        response.setEncoding('utf8')
+        response.on('data', letter => { data += letter })
         response.once(
           'end', 
           () => {
-            let versionsResult;
+            let versionsResult
             const versionsResponse = Object
                 .keys(JSON.parse(data).versions)
                 .filter(version => semver.valid(version))
-                .sort(semver.rcompare);
+                .sort(semver.rcompare)
 
-          // **************************** Handle Options **************************** //
-            // Handle `extract` option .. 
+          // **************************** handle options **************************** //
+            // handle `extract` option
             if (extract) {
-              const { pure, rc, beta, alpha } = extract;
+              const { pure, rc, beta, alpha } = extract
 
               versionsResult = (() => {
-                // when all extract fields are true, don't need to diving in loops .. 
+                // when all extract fields are true, don't need to diving in loops
                 if(pure && rc && beta && alpha) {
-                  return versionsResponse;
+                  return versionsResponse
                 }
-                // simple but clean, here we forced to loops .. 
+                // simple but clean, here we forced to loops
                 return versionsResponse.filter(version => {
-                  if(pure && version.length === 'X.X.X'.length) return version;
-                  if(rc && version.includes('rc')) return version;
-                  if(beta && version.includes('beta')) return version;
-                  if(alpha && version.includes('alpha')) return version;
-                  return false;
-                });
-              })();  
+                  if(pure && version.length === 'X.X.X'.length) return version
+                  if(rc && version.includes('rc')) return version
+                  if(beta && version.includes('beta')) return version
+                  if(alpha && version.includes('alpha')) return version
+                  return false
+                })
+              })()  
             }
 
-            // Handle `reverse` option .. 
+            // handle `reverse` option
             if(reverse) {
-              versionsResult = extract ? versionsResult.reverse() : versionsResponse.reverse();
+              versionsResult = extract ? versionsResult.reverse() : versionsResponse.reverse()
             }
 
           // ************************************************************************ //
-
-            resolve(Object.keys(Opts).length !== 0 ? versionsResult : versionsResponse);
+            resolve(Object.keys(opts).length !== 0 ? versionsResult : versionsResponse)
           }
-        );
+        )
     })
     .on('error', error => reject(error.message))
-    .end();
-  });
+    .end()
+  })
 }
